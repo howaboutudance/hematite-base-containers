@@ -2,7 +2,7 @@ name: push to ecr
 on: [push]
 
 jobs:
-  buuld-python-slim:
+  build-python-slim:
     runs-on: ubuntu-latest
     steps:
     - name: Configure AWS credentials
@@ -21,5 +21,5 @@ jobs:
         IMAGE_TAG: ${{ github.sha }}
       run:
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f py-slim.Dockerfile . 
-          docker build $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
