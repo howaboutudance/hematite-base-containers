@@ -1,4 +1,4 @@
-FROM fedora-minimal:latest AS src
+FROM registry.fedoraproject.org/fedora-minimal:latest AS src
 RUN microdnf install -y python python-pip --nodocs --setopt install_weak_deps=0 && \
     microdnf clean all -y
 WORKDIR /build
