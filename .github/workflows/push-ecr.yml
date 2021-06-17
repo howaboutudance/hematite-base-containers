@@ -5,6 +5,7 @@ jobs:
   build-python-slim:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
@@ -19,7 +20,7 @@ jobs:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: hematite/python-slim
         IMAGE_TAG: ${{ github.sha }}
-      run:
+      run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f py-slim.Dockerfile . 
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
