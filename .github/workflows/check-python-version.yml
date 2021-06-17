@@ -1,4 +1,4 @@
-name: learn-github-action
+name: check-python-version
 on: [push]
 jobs:
   check-bats-version:
