@@ -64,8 +64,8 @@ jobs:
       - name: Build and push container image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
-          context: python
-          file: python/py-full.Dockerfile
+          context: ./python
+          file: py-full.Dockerfile
           target: build-latest
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
@@ -111,8 +111,8 @@ jobs:
       - name: Build and push container image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
-          context: python
-          file: python/py-full.Dockerfile
+          context: ./python
+          file: py-full.Dockerfile
           target: build-py39
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
@@ -158,8 +158,8 @@ jobs:
       - name: Build and push container image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
-          context: python
-          file: python/py-full.Dockerfile
+          context: ./python
+          file: py-full.Dockerfile
           target: build-py39
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
