@@ -52,10 +52,8 @@ jobs:
         with:
           flavor: |
             latest=false
-            prefix=3.10
-            suffix=.ci
           tags: |
-            type=sha,enable=true,priority=100,prefix=sha-,suffix=,format=short
+            type=sha,enable=true,priority=100,prefix=3.10-,suffix=.ci,format=short
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
       # Build and push Docker image with Buildx (don't push on PR)
@@ -100,10 +98,8 @@ jobs:
         with:
           flavor: |
             latest=false
-            prefix=3.9
-            suffix=.ci
           tags: |
-            type=sha,enable=true,priority=100,prefix=sha-,suffix=,format=short
+            type=sha,enable=true,priority=100,prefix=3.9-,suffix=.ci,format=short
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
       # Build and push Docker image with Buildx (don't push on PR)
@@ -147,10 +143,8 @@ jobs:
         with:
           flavor: |
             latest=false
-            prefix=3.8
-            suffix=.ci
           tags: |
-            type=sha,enable=true,priority=100,prefix=sha-,suffix=,format=short
+            type=sha,enable=true,priority=100,prefix=3.8-,suffix=.ci,format=short
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
       # Build and push Docker image with Buildx (don't push on PR)
