@@ -50,10 +50,10 @@ jobs:
         id: meta
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
-          flavors: |
-            latest=auto
+          flavor: |
+            latest=false
             prefix=3.10
-            suffix=ci
+            suffix=.ci
           tags: |
             type=sha,enable=true,priority=100,prefix=sha-,suffix=,format=short
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
@@ -70,6 +70,7 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
   build-py39-ci:
 
     runs-on: ubuntu-latest
@@ -97,9 +98,10 @@ jobs:
         id: meta
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
-          flavors: |
+          flavor: |
+            latest=false
             prefix=3.9
-            suffix=ci
+            suffix=.ci
           tags: |
             type=sha,enable=true,priority=100,prefix=sha-,suffix=,format=short
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
@@ -143,9 +145,10 @@ jobs:
         id: meta
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
-          flavors: |
+          flavor: |
+            latest=false
             prefix=3.8
-            suffix=ci
+            suffix=.ci
           tags: |
             type=sha,enable=true,priority=100,prefix=sha-,suffix=,format=short
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
